@@ -1,13 +1,28 @@
-The MIT License (MIT)
+The source code in the anyio package, and the examples, is released under
+A temporary evaluation licence, while we decide exactly what licence to use in 
+the future.
 
-Copyright (c) 2014 whaleygeek
+
+The source code for the pyserial package is released under it's own licence
+that is detailed inside the anyio/arduino/pyserial package, and pyserial
+is provided for convenience in it's original form. The pyserial licence
+permits the package to be embedded inside other packages like this.
+
+
+Evaluation Licence
+
+Copyright (c) 2014 whaleygeek (David Whale)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of this software and associated documentation files (the "Software"), to use the
+software for educational of non commercial purposes until 31st August 2014.
+
+After 31st August 2014 you agree to delete all copies of the software, and
+if you wish to continue using it, you agree to download a later copy of it
+from this site, by which time it is planned to be released under a standard 
+licence
+
+You agree to not restrict my rights in the use of this software in any way.
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
@@ -19,3 +34,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+

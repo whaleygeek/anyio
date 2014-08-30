@@ -186,7 +186,11 @@ this is provided in it's entirely complete form, with it's original
 licence, which allows for it to be embedded inside other packages with 
 out any special install. 
 
+There is an embedded version of the ProMicro.inf file, which came from
+the SparkFun github repository. It is included here for convenience,
+but the latest copy can always be retrieved from here:
 
+https://github.com/sparkfun/SF32u4_boards/blob/master/driver/ProMicro.inf
 
 
 David Whale

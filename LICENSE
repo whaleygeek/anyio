@@ -1,28 +1,19 @@
-The source code in the anyio package, and the examples, is released under
-A temporary evaluation licence, while we decide exactly what licence to use in 
-the future.
-
 
 The source code for the pyserial package is released under it's own licence
 that is detailed inside the anyio/arduino/pyserial package, and pyserial
 is provided for convenience in it's original form. The pyserial licence
-permits the package to be embedded inside other packages like this.
+permits the package to be embedded inside other packages in this way.
 
 
-Evaluation Licence
+anyio Licence
 
 Copyright (c) 2014 whaleygeek (David Whale)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to use the
-software for educational of non commercial purposes until 31st August 2014.
+Software for educational or non commercial purposes.
 
-After 31st August 2014 you agree to delete all copies of the software, and
-if you wish to continue using it, you agree to download a later copy of it
-from this site, by which time it is planned to be released under a standard 
-licence
-
-You agree to not restrict my rights in the use of this software in any way.
+You agree to not restrict my rights in the use of this Software in any way.
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.

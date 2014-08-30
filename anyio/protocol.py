@@ -23,7 +23,7 @@ GPIO_VALUE_HIGH = "1"
 GPIO_VALUE_LOW  = "0"
 
 def _pinch(channel):
-  return chr(channel-1+ord('a'))
+  return chr(channel+ord('a'))
     
 def _valuech(value):
   if value == None or value == 0 or value == False:

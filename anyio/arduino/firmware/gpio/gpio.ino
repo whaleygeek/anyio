@@ -55,7 +55,7 @@
 
 /* The version string is sent back via the 'V' command */
 
-#define VERSION_STR "ArduinoProMicro V0.1.0"
+#define VERSION_STR "ArduinoProMicro/GPIO V0.1.1"
 
 
 /* The serial baud rate. Set this to as high as you can to get
@@ -66,11 +66,11 @@
 #define BAUD_RATE 115200
 
 
-/* Arduino pins on the Pro Micro are numbered 1..16. The simple
- * protocol labels these as "abcd efgh ijkl mnop" respectively.
+/* Arduino pins on the Pro Micro are numbered 0..16. The simple
+ * protocol labels these as "abcd efgh ijkl mnop q" respectively.
  */
 
-#define MIN_PIN 1
+#define MIN_PIN 0
 #define MAX_PIN 16
 
 /* Errors are sent back via the 'E' response. */
@@ -209,7 +209,7 @@ static void command(char cmdch, char paramch)
  * GPIO Commands are two characters.
  * <pinch> <cmdch>
  *
- * pinch is the pin character (a..z) where 'a' represents pin 1.
+ * pinch is the pin character (a..z) where 'a' represents pin 0.
  * cmdch is the command to perform on that pin:
  *   I: Set this pin to a digital input,        eg: aI
  *   O: Set this pin to a digital output,       eg: aO
@@ -221,7 +221,7 @@ static void command(char cmdch, char paramch)
  
 static void gpio(char pinch, char cmdch)
 {
-  int pin = pinch - 'a'+1;
+  int pin = pinch - 'a';
   
   if (pin < MIN_PIN || pin > MAX_PIN)
   { /* out of range pin label */

@@ -70,7 +70,7 @@ anyio/arduino/firmware/gpio/gpio.ino
 
 TESTING THE PRO MICRO
 
-At the moment, this has only been tested with python 2.7.3 - there are 
+At the moment, this has only been tested with Python 2.7 - there are 
 know issues we are looking at with some slightly earlier versions of 
 2.6 (to do with reading the version number of Python), and some known 
 issues with all versions of Python 3 that we are looking at 

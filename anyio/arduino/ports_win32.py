@@ -10,10 +10,17 @@ except ImportError:
 KEY = r"HARDWARE\DEVICEMAP\SERIALCOMM"
 
 def scan():
-  reg = registry.ConnectRegistry(None, registry.HKEY_LOCAL_MACHINE)
-  key = registry.OpenKey(reg, KEY)
-
   ports = []
+
+  reg = registry.ConnectRegistry(None, registry.HKEY_LOCAL_MACHINE)
+  try:
+    key = registry.OpenKey(reg, KEY)
+  except:
+    # If there is no SERIALCOMM registry entry
+    # it means this computer has never seen a serial port.
+    # Best action is to return an empty ports list. 
+    # When the device is inserted, windows will create the entry for us.
+    return ports
 
   i = 0
   while True:

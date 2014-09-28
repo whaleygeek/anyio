@@ -47,6 +47,8 @@ else:
   if name == None:
     raise ValueError("No port selected, giving in")
   PORT = name
+  print("Your anyio board has been detected")
+  print("Now running your program...")
 
 BAUD = 115200
 

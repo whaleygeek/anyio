@@ -15,14 +15,13 @@ CACHE_NAME = "portscan.cache"
 # it sometimes takes some computers a little bit of time to safely
 # unload the driver. This prevents false readings.
 DRIVER_UNLOAD_TIME = 2
-DRIVER_UNLOAD_TIME = 2
 
 # The time, in seconds, to wait for any drivers to load.
 # When the user presses ENTER after the "insert device" message,
 # it sometimes takes some computers a little bit of time to safely
 # load the driver. This prevents false readings.
 
-DRIVER_LOAD_TIME = 2
+DRIVER_LOAD_TIME = 4
 
 def message(msg):
   print(msg)

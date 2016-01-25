@@ -14,12 +14,12 @@ SERVER_AUTOSTART = True
 
 instance = GPIOClient(server=SERVER_AUTOSTART)
     
-def setup(mode):
-  instance.setup(mode)
-  
-def setmode(channel, mode):
-  instance.setmode(channel, mode)
-  
+def setmode(mode):
+  instance.setmode(mode)
+
+def setup(channel, mode):
+  instance.setup(channel, mode)
+
 def input(channel):
   return instance.input(channel)
   

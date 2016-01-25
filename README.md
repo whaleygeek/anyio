@@ -36,6 +36,7 @@ time.
 
 
 USING A PRE-PROGRAMMED PRO-MICRO
+----
 
 For your convenience, you can buy an Arduino Pro Micro 3.3V 8MHz
 device with pre-soldered pin headers and pre-programmed anyio firmware
@@ -49,6 +50,7 @@ and you'll be working in no time!
 
 
 PROGRAMMING THE PRO MICRO YOURSELF
+----
 
 If you are already familiar with Arduino programming and soldering, 
 you might like to buy the raw components yourself and solder some
@@ -69,6 +71,7 @@ anyio/arduino/firmware/gpio/gpio.ino
 
 
 TESTING THE PRO MICRO
+----
 
 At the moment, this has only been tested with Python 2.7 - there are 
 know issues we are looking at with some slightly earlier versions of 
@@ -99,7 +102,8 @@ should detect the device the first time you run one of your programs.
 Once the device has it's firmware installed and it is plugged in, you 
 are ready to run the test programs. Wire up a LED to pin 15, then run:
 
-  python testLED.py
+
+    python testLED.py
 
 
 The first time this runs, it will work out the serial port number. 
@@ -125,7 +129,8 @@ Your LED should now be flashing.
 
 Once you have tried that, wire a button up to pin 4 and run:
 
-  python testButton.py
+
+    python testButton.py
 
 
 If you are getting excited at this point, wire up a 7-segment display to
@@ -136,10 +141,12 @@ If your display is Common Cathode, edit testSeg7.py and set ON=False
 
 Now run this to count through the numbers 0 to 9 on the display:
 
-  python testSeg7.py
+
+    python testSeg7.py
 
 
 USE OF PYSERIAL
+----
 
 This module uses pyserial to communicate with the Arduino Pro Micro.
 
@@ -154,7 +161,118 @@ version for any reason, you can change the anyio/arduino/GPIO.py
 USE_EMBEDDED_PYSERIAL = False
 
 
+USING THE CONSOLE SIMULATOR
+----
+
+If you don't have a ProMicro or any other Arduino, or if perhaps you
+want to use this library to help you simulate GPIO on a Mac/PC/Linux
+machine for later running on a Raspberry Pi, here is how you can
+do that.
+
+I will explain a full worked example using the sample test code.
+
+Edit the testLED.py and change the arduino line so it says this:
+
+    import anyio.console.GPIO as GPIO
+    LED = 15
+
+This imports a 'simulated' GPIO that runs inside the console window
+of the python program when you run it.
+
+Now run the code like this (python2 only at the moment!):
+
+
+    python testLED.py
+
+
+You will get this output:
+
+
+    PIN   0123 4567 89AB CDEF G
+    MODE  XXXX XXXX XXXX XXXO X
+    STATE XXXX XXXX XXXX XXX0 X
+
+    PIN   0123 4567 89AB CDEF G
+    MODE  XXXX XXXX XXXX XXXO X
+    STATE XXXX XXXX XXXX XXX1 X
+
+    PIN   0123 4567 89AB CDEF G
+    MODE  XXXX XXXX XXXX XXXO X
+    STATE XXXX XXXX XXXX XXX0 X
+
+    PIN   0123 4567 89AB CDEF G
+    MODE  XXXX XXXX XXXX XXXO X
+    STATE XXXX XXXX XXXX XXX1 X
+
+
+You can see column 'F' (GPIO 15) is set as MODE output, and it's STATE
+changes from 0 to 1 - this is your simulated LED flashing!!
+
+
+Now to test a GPIO input.
+
+Modify the testButton.py so that the arduino line looks like this:
+
+
+    # Arduino
+    import anyio.console.GPIO as GPIO
+    BUTTON = 4
+
+
+Run it like this (python2 only at moment!):
+
+    python testButton.py
+
+
+You will see this on the screen:
+
+    released
+    released
+    released
+    released
+    released
+    released
+
+
+The GPIO 4 for the button is currently high, so this is detected as the testButton.py
+as a released button.
+
+Now on the console (while it is scrolling) type 40 then press ENTER.
+
+The first character is the PIN identifier (0-9 A-F) and the second character
+is a command (0=setlow, 1=sethigh, I=makeinput, O=makeoutput)
+
+Now you should see this:
+
+
+    4released
+    released
+    released
+    0released
+    released
+    
+    pressed
+    pressed
+    pressed
+    pressed
+    pressed
+
+
+You have just pressed the button! (GPIO 4 is now zero/low so the testButton.py
+program sees this as a pressed button).
+
+To release the button, type 41 ENTER into the console to set the input pin high.
+
+It's not pretty, but it does work, and it's good enough sometimes for me to
+write new code on the train when I don't have a Raspberry Pi to hand. When I get
+home I load the code onto my Raspberry Pi, modify the 'import' back to RPi.GPIO
+and the code usually works first time!
+
+
+
+
 FUTURE WORK
+----
 
 This package contains a console based (text mode) simulator that can be 
 used to test your programs on before you connect to real hardware, and 
@@ -178,6 +296,7 @@ a GPIO server running on any arbitrary host computer (e.g. a Raspberry Pi).
 
 
 NOTES ABOUT COPYRIGHTED MATERIAL
+----
 
 The source code in the anyio package is (c) 2014 David Whale.
 
@@ -194,5 +313,8 @@ https://github.com/sparkfun/SF32u4_boards/blob/master/driver/ProMicro.inf
 
 
 David Whale
+
+@whaleygeek
+
 June 2014
 

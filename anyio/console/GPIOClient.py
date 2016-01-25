@@ -46,17 +46,17 @@ class GPIOClient:
     if server:
       self.controlInputs(True)
       
-  def setup(mode):
+  def setmode(self, mode):
     # BCM or BOARD
-    pass
+    pass # nothing to do here for a simulation
 
-  def setmode(self, channel, mode):
+  def setup(self, channel, mode):
     self.pinmode[channel] = mode
 
-    if mode == INPUT:
+    if mode == IN:
       self.pinstate[channel] = HIGH
 
-    elif mode == OUTPUT:
+    elif mode == OUT:
       self.pinstate[channel] = LOW
       self._show()
 
@@ -95,9 +95,9 @@ class GPIOClient:
     line = "MODE  "
     for p in range(MIN_PIN, MAX_PIN+1):
       try:
-        if self.pinmode[p] == INPUT:
+        if self.pinmode[p] == IN:
           line += "I"
-        elif self.pinmode[p] == OUTPUT:
+        elif self.pinmode[p] == OUT:
           line += "O"
         else:
           line += "?"
@@ -125,7 +125,7 @@ class GPIOClient:
     write("")
 
   def changeInput(self, channel, value):
-    if self.pinmode[channel] != INPUT:
+    if self.pinmode[channel] != IN:
       raise ValueError("Pin is not an input")
     self.pinstate[channel] = self._pinValue(value)        
 
@@ -169,9 +169,9 @@ class GPIOClient:
     
   def _process(self, channel, valuech):
     if valuech == "I":
-      self.setmode(channel, INPUT)
+      self.setmode(channel, IN)
     elif valuech == "O":
-      self.setmode(channel, OUTPUT)
+      self.setmode(channel, OUT)
     elif valuech == "1":
       self.changeInput(channel, True)
     elif valuech == "0":

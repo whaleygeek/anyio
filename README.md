@@ -3,6 +3,17 @@ anyio
 
 A GPIO Python module, that works on many platforms.
 
+This package was written initially to support the hardware chapters in my book
+Adventures in Minecraft: 
+
+https://www.amazon.co.uk/Adventures-Minecraft-David-Whale/dp/111894691X
+
+If you want to access the specific version that was used with that book,
+please follow this link: 
+
+https://github.com/whaleygeek/anyio/tree/adventures_in_minecraft
+
+
 
 The anyio package aims to mimic the basic functionality of the RPi.GPIO
 Python module that is used on the Raspberry Pi computer. 

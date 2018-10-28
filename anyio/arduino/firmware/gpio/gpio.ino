@@ -9,7 +9,7 @@
  * CONTEXT
  *   There is a supporting Python module that communicates with this
  *   code over a serial port, using the pyserial open source library.
- *   GPIO functin calls from within a Python program on the Mac/PC cause
+ *   GPIO function calls from within a Python program on the Mac/PC cause
  *   outputs to change or inputs to be read, using this firmware.
  *
  * USAGE
